@@ -74,7 +74,7 @@ const (
 	// defaultFuseMetricsEmitWaitDurationSec is the amount of time the snapshotter will wait before emitting the metrics for FUSE operation.
 	defaultFuseMetricsEmitWaitDurationSec = 60
 
-	defaultValidIntervalSec = 60
+	defaultValidIntervalSec = 50
 
 	defaultFetchTimeoutSec = 300
 
