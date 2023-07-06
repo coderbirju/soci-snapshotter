@@ -93,7 +93,6 @@ can run these tests using the following `Makefile` targets:
 - `make integration`: run all integration tests.
 - `make benchmarks` (experimental): run all benchmark tests. This requires some
 setup and preparation for public images with SOCI index which are used for benchmarking.
-It is tracked in [#245](https://github.com/awslabs/soci-snapshotter/issues/245).
 
 To speed up develop-test cycle, you can run individual test(s) by utilizing `go test`'s
 `-run` flag. For example, suppose you only want to run a test named `TestFooBar`, you can:
