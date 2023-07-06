@@ -20,7 +20,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strconv"
 	"testing"
 
 	"github.com/awslabs/soci-snapshotter/benchmark"
@@ -29,22 +28,35 @@ import (
 )
 
 var (
-	outputDir = "./output"
+	outputDir = "../performanceTest/output"
 )
 
 func main() {
-	parseFileAccessPatterns := flag.Bool("parseFileAccess", false, "Parse fuse file access patterns.")
+
+	var (
+		numberOfTests           int
+		configCsv               string
+		showCom                 bool
+		parseFileAccessPatterns bool
+		commit                  string
+		imageList               []benchmark.ImageDescriptor
+		err                     error
+	)
+
+	flag.BoolVar(&parseFileAccessPatterns, "parse-file-access", false, "Parse fuse file access patterns.")
+	flag.BoolVar(&showCom, "show-commit", false, "tag the commit hash to the benchmark results")
+	flag.IntVar(&numberOfTests, "count", 5, "Describes the number of runs a benchmarker should run. Default: 5")
+	flag.StringVar(&configCsv, "f", "default", "Path to a csv file describing image details in this order ['Name','Image ref', 'Ready line', 'manifest ref'].")
+
 	flag.Parse()
-	args := flag.Args()
-	commit := args[0]
-	configCsv := args[1]
-	numberOfTests, err := strconv.Atoi(args[2])
-	if err != nil {
-		errMsg := fmt.Sprintf("Failed to parse number of test %s with error:%v\n", args[2], err)
-		panic(errMsg)
+
+	if showCom {
+		commit, _ = benchmark.GetCommitHash()
+	} else {
+		commit = "N/A"
 	}
 
-	if *parseFileAccessPatterns {
+	if parseFileAccessPatterns {
 		fileAccessDir := outputDir + "/file_access_logs"
 		err := os.RemoveAll(fileAccessDir)
 		if err != nil {
@@ -56,10 +68,14 @@ func main() {
 		}
 	}
 
-	imageList, err := benchmark.GetImageListFromCsv(configCsv)
-	if err != nil {
-		errMsg := fmt.Sprintf("Failed to read csv file %s with error:%v\n", configCsv, err)
-		panic(errMsg)
+	if configCsv == "default" {
+		imageList = benchmark.GetDefaultWorkloads()
+	} else {
+		imageList, err = benchmark.GetImageListFromCsv(configCsv)
+		if err != nil {
+			errMsg := fmt.Sprintf("Failed to read csv file %s with error:%v\n", configCsv, err)
+			panic(errMsg)
+		}
 	}
 
 	err = os.Mkdir(outputDir, 0755)
@@ -89,7 +105,7 @@ func main() {
 				benchmark.SociFullRun(ctx, b, imageRef, sociIndexManifestRef, readyLine, testName)
 			},
 		}
-		if *parseFileAccessPatterns {
+		if parseFileAccessPatterns {
 			driver.AfterFunction = func() error {
 				err := bparser.ParseFileAccesses(shortName)
 				return err
