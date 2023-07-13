@@ -95,7 +95,7 @@ integration: build
 benchmarks:
 	@echo "$@"
 	@cd benchmark/performanceTest ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/PerfTests . && sudo ../bin/PerfTests
-	@cd benchmark/comparisonTest ;  GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/CompTests . && sudo ../bin/CompTests
+	@cd benchmark/comparisonTest ;  GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/CompTests . && sudo ../bin/CompTests -show-commit
 
 build-benchmarks:
 	@echo "$@"
@@ -104,7 +104,7 @@ build-benchmarks:
 
 benchmarks-test:
 	@echo "$@"
-	@cd benchmark/performanceTest ; sudo rm -rf output ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/PerfTests . && sudo ../bin/PerfTests
+	@cd benchmark/performanceTest ; sudo rm -rf output ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/PerfTests . && sudo ../bin/PerfTests -show-commit
 	@cd benchmark/performanceTest ; cat output/results.json
 
 benchmarks-stargz:
