@@ -47,6 +47,7 @@ jobs:
           tool: 'go'
           benchmark-data-dir-path: "dev/bench/macOS/test/perfTest"
           output-file-path: benchmark.json
+
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           # Show alert with commit comment on detecting possible performance regression
@@ -55,6 +56,7 @@ jobs:
           fail-on-alert: true
       - name: Push benchmark result
         run: git push 'https://github.com/coderbirju/soci-snapshotter.git' gh-pages:gh-pages
+
   test:
     runs-on: ubuntu-20.04
     steps:
