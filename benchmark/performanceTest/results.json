@@ -1,0 +1,125 @@
+{
+ "commit": "ccffc43277a7f4b2547647106358ca1dab8b1ff2\n",
+ "benchmarkTests": [
+  {
+   "testName": "SociFullECR-public-ffmpeg",
+   "numberOfTests": 1,
+   "testTimes": [
+    8.197951995
+   ],
+   "stdDev": 0,
+   "mean": 8.197951995,
+   "min": 8.197951995,
+   "pct25": 8.197951995,
+   "pct50": 8.197951995,
+   "pct75": 8.197951995,
+   "pct90": 8.197951995,
+   "max": 8.197951995
+  },
+  {
+   "testName": "SociFullECR-public-tensorflow",
+   "numberOfTests": 1,
+   "testTimes": [
+    12.406842673
+   ],
+   "stdDev": 0,
+   "mean": 12.406842673,
+   "min": 12.406842673,
+   "pct25": 12.406842673,
+   "pct50": 12.406842673,
+   "pct75": 12.406842673,
+   "pct90": 12.406842673,
+   "max": 12.406842673
+  },
+  {
+   "testName": "SociFullECR-public-tensorflow_gpu",
+   "numberOfTests": 1,
+   "testTimes": [
+    43.996500085
+   ],
+   "stdDev": 0,
+   "mean": 43.996500085,
+   "min": 43.996500085,
+   "pct25": 43.996500085,
+   "pct50": 43.996500085,
+   "pct75": 43.996500085,
+   "pct90": 43.996500085,
+   "max": 43.996500085
+  },
+  {
+   "testName": "SociFullECR-public-node",
+   "numberOfTests": 1,
+   "testTimes": [
+    3.895099516
+   ],
+   "stdDev": 0,
+   "mean": 3.895099516,
+   "min": 3.895099516,
+   "pct25": 3.895099516,
+   "pct50": 3.895099516,
+   "pct75": 3.895099516,
+   "pct90": 3.895099516,
+   "max": 3.895099516
+  },
+  {
+   "testName": "SociFullECR-public-busybox",
+   "numberOfTests": 1,
+   "testTimes": [
+    0.596805472
+   ],
+   "stdDev": 0,
+   "mean": 0.596805472,
+   "min": 0.596805472,
+   "pct25": 0.596805472,
+   "pct50": 0.596805472,
+   "pct75": 0.596805472,
+   "pct90": 0.596805472,
+   "max": 0.596805472
+  },
+  {
+   "testName": "SociFullECR-public-mongo",
+   "numberOfTests": 1,
+   "testTimes": [
+    2.4641777830000002
+   ],
+   "stdDev": 0,
+   "mean": 2.4641777830000002,
+   "min": 2.4641777830000002,
+   "pct25": 2.4641777830000002,
+   "pct50": 2.4641777830000002,
+   "pct75": 2.4641777830000002,
+   "pct90": 2.4641777830000002,
+   "max": 2.4641777830000002
+  },
+  {
+   "testName": "SociFullECR-public-rabbitmq",
+   "numberOfTests": 1,
+   "testTimes": [
+    10.267814732
+   ],
+   "stdDev": 0,
+   "mean": 10.267814732,
+   "min": 10.267814732,
+   "pct25": 10.267814732,
+   "pct50": 10.267814732,
+   "pct75": 10.267814732,
+   "pct90": 10.267814732,
+   "max": 10.267814732
+  },
+  {
+   "testName": "SociFullECR-public-redis",
+   "numberOfTests": 1,
+   "testTimes": [
+    1.448107514
+   ],
+   "stdDev": 0,
+   "mean": 1.448107514,
+   "min": 1.448107514,
+   "pct25": 1.448107514,
+   "pct50": 1.448107514,
+   "pct75": 1.448107514,
+   "pct90": 1.448107514,
+   "max": 1.448107514
+  }
+ ]
+}
