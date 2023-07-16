@@ -102,6 +102,9 @@ build-benchmarks:
 	@cd benchmark/performanceTest ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/PerfTests .
 	@cd benchmark/comparisonTest ;  GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/CompTests .
 
+benchmarks-test:
+	@cd benchmark/performanceTest ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/PerfTests . && sudo ../bin/PerfTests -count 1 -show-commit &> /dev/null
+
 benchmarks-stargz:
 	@echo "$@"
 	@cd benchmark/stargzTest ; GO111MODULE=$(GO111MODULE_VALUE) go build -o ../bin/StargzTests . && sudo ../bin/StargzTests $(COMMIT) ../singleImage.csv 10 $(STARGZ_BINARY)
