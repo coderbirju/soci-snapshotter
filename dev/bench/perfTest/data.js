@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689715185213,
+  "lastUpdate": 1689715640646,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -86,6 +86,50 @@ window.BENCHMARK_DATA = {
           {
             "name": "BenchmarkThing - pullDuration",
             "value": 7.731,
+            "unit": "pullDuration",
+            "extra": "1 times\n17 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "id": "0cadd1f6b37a7603d140bca012dd5fa8ae4bd14a",
+          "message": "Add basic workflow",
+          "timestamp": "2023-06-05T22:53:45Z",
+          "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/0cadd1f6b37a7603d140bca012dd5fa8ae4bd14a"
+        },
+        "date": 1689715640107,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkThing - ns/op",
+            "value": 1757034557,
+            "unit": "ns/op",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "BenchmarkThing - lazyTaskDuration",
+            "value": 0.065,
+            "unit": "lazyTaskDuration",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "BenchmarkThing - localTaskStats",
+            "value": 0.007,
+            "unit": "localTaskStats",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "BenchmarkThing - pullDuration",
+            "value": 9.731,
             "unit": "pullDuration",
             "extra": "1 times\n17 procs"
           }
