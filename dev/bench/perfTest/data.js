@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689715640646,
+  "lastUpdate": 1689719148427,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -133,6 +133,74 @@ window.BENCHMARK_DATA = {
           {
             "name": "BenchmarkThing - pullDuration",
             "value": 9.731,
+            "unit": "pullDuration",
+            "extra": "1 times\n17 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "id": "fac709111231a0bf0a000043c3d803f3a71edb05",
+          "message": "Add basic workflow",
+          "timestamp": "2023-06-05T22:53:45Z",
+          "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/fac709111231a0bf0a000043c3d803f3a71edb05"
+        },
+        "date": 1689719147730,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "Benchmarkffmpeg - ns/op",
+            "value": 1757034557,
+            "unit": "ns/op",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarkffmpeg - lazyTaskDuration",
+            "value": 0.065,
+            "unit": "lazyTaskDuration",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarkffmpeg - localTaskStats",
+            "value": 0.007,
+            "unit": "localTaskStats",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarkffmpeg - pullDuration",
+            "value": 9.731,
+            "unit": "pullDuration",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarknode - ns/op",
+            "value": 1557034557,
+            "unit": "ns/op",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarknode - lazyTaskDuration",
+            "value": 0.035,
+            "unit": "lazyTaskDuration",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarknode - localTaskStats",
+            "value": 0.003,
+            "unit": "localTaskStats",
+            "extra": "1 times\n17 procs"
+          },
+          {
+            "name": "Benchmarknode - pullDuration",
+            "value": 6.631,
             "unit": "pullDuration",
             "extra": "1 times\n17 procs"
           }
