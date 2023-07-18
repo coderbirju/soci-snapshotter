@@ -13,6 +13,7 @@ window.BENCHMARK_DATA = {
             "name": "coderbirju",
             "username": "coderbirju"
           },
+          "distinct": true,
           "id": "80d587b090a006fb7a1e579158c878a21fee977a",
           "message": "Add basic workflow",
           "timestamp": "2023-06-05T22:53:45Z",
@@ -57,8 +58,9 @@ window.BENCHMARK_DATA = {
             "name": "coderbirju",
             "username": "coderbirju"
           },
+          "distinct": true,
           "id": "5491bacb496e74448c19b8aac6ee4ce30b74b2cd",
-          "message": "Add basic workflow",
+          "message": "Add basic workflow 2",
           "timestamp": "2023-06-05T22:53:45Z",
           "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/5491bacb496e74448c19b8aac6ee4ce30b74b2cd"
         },
@@ -101,8 +103,9 @@ window.BENCHMARK_DATA = {
             "name": "coderbirju",
             "username": "coderbirju"
           },
+          "distinct": true,
           "id": "0cadd1f6b37a7603d140bca012dd5fa8ae4bd14a",
-          "message": "Add basic workflow",
+          "message": "Add basic workflow 3",
           "timestamp": "2023-06-05T22:53:45Z",
           "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/0cadd1f6b37a7603d140bca012dd5fa8ae4bd14a"
         },
