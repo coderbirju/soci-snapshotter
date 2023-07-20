@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689813011779,
+  "lastUpdate": 1689877770359,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -151,6 +151,50 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/9e283a5453cdce194637f945916831b52fe1af57"
         },
         "date": 1689813011452,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 0.8444054305,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskStats",
+            "value": 2.1839740195,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullDuration",
+            "value": 10.575843491499995,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-fullRun",
+            "value": 11.3150453825,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "name": "coderbirju",
+            "username": "coderbirju"
+          },
+          "id": "6dcba1172bf9789ec05ba210f1d0350595583a7b",
+          "message": "Add basic workflow",
+          "timestamp": "2023-06-05T22:53:45Z",
+          "url": "https://github.com/coderbirju/soci-snapshotter/pull/18/commits/6dcba1172bf9789ec05ba210f1d0350595583a7b"
+        },
+        "date": 1689877770045,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
