@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1689964868608,
+  "lastUpdate": 1689965756035,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -314,6 +314,54 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-fullRun",
             "value": 10.3150453825,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "eb8b36ccd7ef434e52b7e049be6d0117a91b4fbc",
+          "message": "Merge pull request #20 from coderbirju/new_Poc\n\nmore metrics",
+          "timestamp": "2023-07-21T11:55:11-07:00",
+          "tree_id": "132467fb2681b58739fa0237ed72bd3d8499984b",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/eb8b36ccd7ef434e52b7e049be6d0117a91b4fbc"
+        },
+        "date": 1689965755281,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 1.0644054305,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskStats",
+            "value": 2.39740195,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullDuration",
+            "value": 10.975843491499996,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-fullRun",
+            "value": 8.3150453825,
             "unit": "Seconds",
             "extra": "P90"
           }
