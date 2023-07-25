@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690312785247,
+  "lastUpdate": 1690322061916,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -387,6 +387,54 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/coderbirju/soci-snapshotter/commit/3faa93bffaa61ba475c7e4946756af647d1c7bd1"
         },
         "date": 1690312784901,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 1.0644054305,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskStats",
+            "value": 2.39740195,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullDuration",
+            "value": 10.975843491499996,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-fullRun",
+            "value": 8.3150453825,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d856e54e75c750611c69efba9598d0faf3fc9071",
+          "message": "Merge pull request #22 from coderbirju/new_Poc\n\nAdd save and retrieve mechanism",
+          "timestamp": "2023-07-25T14:53:36-07:00",
+          "tree_id": "d664dec85b379bef606747ab6b91f5b4cf5b8306",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/d856e54e75c750611c69efba9598d0faf3fc9071"
+        },
+        "date": 1690322061206,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
