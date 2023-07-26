@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690322061916,
+  "lastUpdate": 1690390542449,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -435,6 +435,54 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/coderbirju/soci-snapshotter/commit/d856e54e75c750611c69efba9598d0faf3fc9071"
         },
         "date": 1690322061206,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 1.0644054305,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskStats",
+            "value": 2.39740195,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullDuration",
+            "value": 10.975843491499996,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-fullRun",
+            "value": 8.3150453825,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f2ce83eed91b3884c1ce9529859e47fac4d58dff",
+          "message": "Merge pull request #25 from coderbirju/new_Poc\n\nMerge pull request #23 from coderbirju/new_Poc",
+          "timestamp": "2023-07-26T09:55:27-07:00",
+          "tree_id": "c1cee05e9008fb25ae47242cd299f0130bfeb61b",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/f2ce83eed91b3884c1ce9529859e47fac4d58dff"
+        },
+        "date": 1690390541344,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
