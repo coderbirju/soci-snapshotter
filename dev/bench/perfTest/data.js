@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1690390542449,
+  "lastUpdate": 1690497556137,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -483,6 +483,52 @@ window.BENCHMARK_DATA = {
           "url": "https://github.com/coderbirju/soci-snapshotter/commit/f2ce83eed91b3884c1ce9529859e47fac4d58dff"
         },
         "date": 1690390541344,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 1.0644054305,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskStats",
+            "value": 2.39740195,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullDuration",
+            "value": 10.975843491499996,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-fullRun",
+            "value": 8.3150453825,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "distinct": true,
+          "id": "2ac9b5b59d603a7c2c0e88b3be22d3c35714ee35",
+          "message": "Add save and retrieve mechanism\n\nTesting git workflows\n\nSigned-off-by: Arjun Raja Yogidas <arjunry@amazon.com>",
+          "timestamp": "2023-07-27T22:35:53Z",
+          "tree_id": "5452b8e3c08b796aba8d660350bbd7491e95723e",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/2ac9b5b59d603a7c2c0e88b3be22d3c35714ee35"
+        },
+        "date": 1690497555540,
         "tool": "customSmallerIsBetter",
         "benches": [
           {
