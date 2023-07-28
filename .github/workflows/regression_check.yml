@@ -33,7 +33,7 @@ jobs:
       - name: Update benchmark result
         uses: actions/upload-artifact@v3
         with:
-          name: benchmark-result_${{ env.Sha }}
+          name: benchmark-result-${{ env.Sha }}
           path: results.json
   fetch_previous_json_files:
     runs-on: ubuntu-latest
@@ -44,10 +44,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          name: benchmark-result_c85e8005b7195e8b565fd1e615123c43269a50bd
-          branch: main
-          path: ${{ github.workspace }}
-          # event: push
+          name: benchmark-result-${{ env.Sha }}
           # github_token: ${{ secrets.GITHUB_TOKEN }}
           # repo: ${{ github.repository }}
           # path: ${{ github.workspace }}
