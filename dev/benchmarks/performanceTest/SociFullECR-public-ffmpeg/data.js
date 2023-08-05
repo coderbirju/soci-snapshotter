@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1691193190243,
+  "lastUpdate": 1691263105590,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -82,6 +82,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
             "value": 20.032,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "91d9544875bcc3a9af1a0aee94a9b3a4ca618430",
+          "message": "Merge pull request #49 from coderbirju/regression_automation_visualization_new\n\nMerge pull request #46 from coderbirju/regression_automation_visualiz…",
+          "timestamp": "2023-08-05T12:09:39-07:00",
+          "tree_id": "011d16aafaa140ce462625738f4c17da32c8500a",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/91d9544875bcc3a9af1a0aee94a9b3a4ca618430"
+        },
+        "date": 1691263101526,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 0.009,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskDuration",
+            "value": 0.009,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
+            "value": 38.801,
             "unit": "Seconds",
             "extra": "P90"
           }
