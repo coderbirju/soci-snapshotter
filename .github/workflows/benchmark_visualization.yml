@@ -56,7 +56,8 @@ jobs:
       - name: Set matrix
         id: set-matrix
          # Create a JSON array with the file paths and store it in the 'files' output
-        run: echo "::set-output name=files::$(find ${{github.workspace}}/current -type f -name '*.json' -printf '%p\n' | jq -R . | jq -cs .)"
+        run: echo "files=$(find ${{github.workspace}}/current -type f -name '*.json' -printf '%p\n' | jq -R . | jq -cs .)" >> $GITHUB_OUTPUT
+        # run: echo "::set-output name=files::$(find ${{github.workspace}}/current -type f -name '*.json' -printf '%p\n' | jq -R . | jq -cs .)"
       - name: Upload files to matrix
         uses: actions/upload-artifact@v3
         with:
@@ -98,7 +99,8 @@ jobs:
           filename=$(basename "${{ matrix.file }}")
           # Remove the .json extension
           filename_without_extension="${filename%.json}"
-          echo "::set-output name=filename::$filename_without_extension"    
+          echo "::set-output name=filename::$filename_without_extension"
+          echo "filename=$filename_without_extension" >> $GITHUB_OUTPUT    
 
 
       - name: Run benchmark action
