@@ -35,34 +35,65 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: '1.18.10'
-      - run: make
-      - name: Download artifact
+      - name: Make previous directory
+        run: mkdir -v ${{ github.workspace }}/previous
+      - name: Download previous run artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           name: benchmark-result-artifact
           name_is_regexp: true
-          path: ${{ github.workspace }}
+          path: ${{ github.workspace }}/previous
           repo: ${{ github.repository }}
           check_artifacts: false
           search_artifacts: true
           skip_unpack: false
           if_no_artifact_found: fail
           workflow: benchmark_visualization.yml
+      - name: Make baseline directory
+        run: mkdir -v ${{ github.workspace }}/baseline
+      - name: Download previous run artifact
+        id: download-artifact-baseline
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          name: benchmark-baseline-artifact
+          name_is_regexp: true
+          path: ${{ github.workspace }}/baseline
+          repo: ${{ github.repository }}
+          check_artifacts: false
+          search_artifacts: true
+          skip_unpack: false
+          if_no_artifact_found: warn
+          workflow: benchmark_baseline.yml
       - name: Perform Comparison and log results
         id: run-compare
         run: |
             sudo chmod +x ${{ github.workspace }}/scripts/check_regression.sh
-            if sudo ${{ github.workspace }}/scripts/check_regression.sh ${{ github.workspace }}/benchmark-result.json ${{ github.workspace }}/benchmark-result-current.json; then
+            if sudo ${{ github.workspace }}/scripts/check_regression.sh ${{ github.workspace }}/previous/results.json ${{github.workspace}}/benchmark/performanceTest/output/results.json; then
               echo "Comparison successful. All P90 values are within the acceptable range."
             else
               echo "Comparison failed. Current P90 values exceed 110% of the corresponding past values."
               echo "regression-detected=true" >> $GITHUB_OUTPUT
             fi
-        
+      - name: Perform baseline comparison and log results
+        id: run-compare-baseline
+        run: |
+            sudo chmod +x ${{ github.workspace }}/scripts/check_regression.sh
+            if [ -f "${{ github.workspace }}/baseline/results.json" ]; then
+              if sudo ${{ github.workspace }}/scripts/check_regression.sh ${{ github.workspace }}/baseline/results.json ${{github.workspace}}/benchmark/performanceTest/output/results.json; then
+                echo "Comparison successful. All P90 values are within the acceptable range."
+              else
+                echo "Comparison failed. Current P90 values exceed 110% of the corresponding past values."
+                echo "regression-detected=true" >> $GITHUB_OUTPUT
+              fi
+            else
+              echo "Baseline comparison skipped. No baseline results found."
+              exit 0  # Exit the workflow gracefully
+            fi
       - name: Stop the workflow if regression is detected
-        if: steps.run-compare.outputs.regression-detected == 'true'
+        if: steps.run-compare.outputs.regression-detected == 'true' || steps.run-compare-baseline.outputs.regression-detected == 'true'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
