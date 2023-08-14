@@ -94,7 +94,6 @@ func (frame *BenchmarkFramework) Run(ctx context.Context) {
 		}
 	}
 
-	print("should We add timeout here for testing?")
 	json, err := json.MarshalIndent(frame, "", " ")
 	if err != nil {
 		fmt.Printf("JSON Marshalling Error: %v\n", err)
