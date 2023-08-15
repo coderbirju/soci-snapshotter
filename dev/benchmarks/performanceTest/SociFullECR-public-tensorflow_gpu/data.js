@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692138463144,
+  "lastUpdate": 1692139291994,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -40,6 +40,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 85.52099999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a09d35171fd63235633428fbab7bec040b2f868",
+          "message": "Merge pull request #65 from coderbirju/fix_visualization\n\nRemove Timeout 10 sec",
+          "timestamp": "2023-08-15T15:34:21-07:00",
+          "tree_id": "8d8c2b44eeec62852e5eda5c508079a290c539db",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/6a09d35171fd63235633428fbab7bec040b2f868"
+        },
+        "date": 1692139291515,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 2.7865,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 2.0445,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 73.2765,
             "unit": "Seconds",
             "extra": "P90"
           }
