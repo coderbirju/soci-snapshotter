@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692138459200,
+  "lastUpdate": 1692139295851,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -40,6 +40,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-redis-pullTaskDuration",
             "value": 3.675,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6a09d35171fd63235633428fbab7bec040b2f868",
+          "message": "Merge pull request #65 from coderbirju/fix_visualization\n\nRemove Timeout 10 sec",
+          "timestamp": "2023-08-15T15:34:21-07:00",
+          "tree_id": "8d8c2b44eeec62852e5eda5c508079a290c539db",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/6a09d35171fd63235633428fbab7bec040b2f868"
+        },
+        "date": 1692139295330,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-redis-lazyTaskDuration",
+            "value": 0.019999999999999997,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-redis-localTaskDuration",
+            "value": 0.0205,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-redis-pullTaskDuration",
+            "value": 2.968,
             "unit": "Seconds",
             "extra": "P90"
           }
