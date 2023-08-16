@@ -14,7 +14,7 @@ on:
       - '.github/workflows/**'
 
 jobs:
-  test-twice:
+  run_benchmark_twice:
     runs-on: ubuntu-20.04
 
     steps:
@@ -52,7 +52,7 @@ jobs:
 
   download_and_perform_comparison:
         runs-on: ubuntu-20.04
-        needs: test-twice
+        needs: run_benchmark_twice
         steps:
           - uses: actions/setup-go@v4
             with:
@@ -60,8 +60,10 @@ jobs:
           - name: Checkout main
             uses: actions/checkout@v3
             with:
-              ref: main
+              ref: ${{ github.event.pull_request.head.sha }}
           - run: make
+          - name: Install basic calculator
+            run: sudo apt-get install bc
 
           - name: Create previous directory
             run: mkdir -v ${{ github.workspace }}/previous
