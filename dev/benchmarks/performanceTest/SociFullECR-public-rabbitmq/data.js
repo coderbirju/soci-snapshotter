@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692139290415,
+  "lastUpdate": 1692217053519,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -82,6 +82,46 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-rabbitmq-pullTaskDuration",
             "value": 3.2510000000000003,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "distinct": true,
+          "id": "f865a178b7a9879286e67934c378adea59ecc0a1",
+          "message": "Add timeout of 10 secs\n\nThis commit adds 10 secs to the RunContainerTaskForReadyLine\nfunction\n\nSigned-off-by: Arjun Raja Yogidas <arjunry@amazon.com>",
+          "timestamp": "2023-08-16T20:03:29Z",
+          "tree_id": "414cb0a6d7d69d63dfde13c41440d07b2e884463",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/f865a178b7a9879286e67934c378adea59ecc0a1"
+        },
+        "date": 1692217052463,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-rabbitmq-lazyTaskDuration",
+            "value": 17.904,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-rabbitmq-localTaskDuration",
+            "value": 18.235,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-rabbitmq-pullTaskDuration",
+            "value": 5.237,
             "unit": "Seconds",
             "extra": "P90"
           }
