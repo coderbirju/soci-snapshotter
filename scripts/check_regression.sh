@@ -26,6 +26,7 @@ compare_stat_p90() {
     # Calculate 150% of the past value
     local threshold=$(calculate_threshold "$past_value")
 
+    echo "Testing stat : $stat_name"
     echo "Past P90 value: $past_value"
     echo "Current P90 value: $current_value"
     echo "Threshold: $threshold"
