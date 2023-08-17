@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692235690849,
+  "lastUpdate": 1692242536283,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -204,6 +204,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-rabbitmq-pullTaskDuration",
             "value": 3.0415,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "596171251c7ac2ac44f5992ecd782bee1c4784b9",
+          "message": "Merge pull request #69 from coderbirju/update_regression_check\n\nUpdate check regression script",
+          "timestamp": "2023-08-16T20:04:40-07:00",
+          "tree_id": "a732f6ff799fb742d37b8433fa84294ac473651c",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/596171251c7ac2ac44f5992ecd782bee1c4784b9"
+        },
+        "date": 1692242535829,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-rabbitmq-lazyTaskDuration",
+            "value": 8.027999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-rabbitmq-localTaskDuration",
+            "value": 7.9265,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-rabbitmq-pullTaskDuration",
+            "value": 5.7135,
             "unit": "Seconds",
             "extra": "P90"
           }
