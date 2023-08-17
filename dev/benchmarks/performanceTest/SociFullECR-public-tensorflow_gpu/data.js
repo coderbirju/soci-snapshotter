@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692217056181,
+  "lastUpdate": 1692234413452,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -122,6 +122,46 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 93.7225,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "distinct": true,
+          "id": "b5e3adf9815e0465d6e95792886f5ed6ef602b6d",
+          "message": "Add timeout of 10 secs\n\nThis commit adds 10 secs to the RunContainerTaskForReadyLine\nfunction\n\nSigned-off-by: Arjun Raja Yogidas <arjunry@amazon.com>",
+          "timestamp": "2023-08-17T00:53:27Z",
+          "tree_id": "d20f5f3bb48dbb6a2d02880482e238cb082d0ffb",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/b5e3adf9815e0465d6e95792886f5ed6ef602b6d"
+        },
+        "date": 1692234410561,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 12.471499999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 11.847999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 76.3955,
             "unit": "Seconds",
             "extra": "P90"
           }
