@@ -22,6 +22,7 @@ compare_stat_p90() {
     local current_value="$2"
     local stat_name="$3"
 
+
     # Calculate 150% of the past value
     local threshold=$(calculate_threshold "$past_value")
 
@@ -37,6 +38,7 @@ compare_stat_p90() {
 calculate_threshold() {
     local past_value="$1"
     awk -v past="$past_value" 'BEGIN { print past * 1.5 }'
+
 }
 
 calculate_p90_after_skip() {
