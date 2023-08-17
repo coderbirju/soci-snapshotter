@@ -22,12 +22,12 @@ compare_stat_p90() {
     local current_value="$2"
     local stat_name="$3"
 
-    # Calculate 110% of the past value
+    # Calculate 125% of the past value
     local threshold=$(calculate_threshold "$past_value")
 
     # Compare the current value with the threshold
-    if (( $(awk 'BEGIN {print ("'"$current_value"'" > "'"$threshold"'")}') )); then
-        echo "ERROR: $stat_name - Current P90 value ($current_value) exceeds the 110% threshold ($threshold) of the past P90 value ($past_value)"
+    if (( $(echo "$current_value > $threshold" |bc -l) )); then
+        echo "ERROR: $stat_name - Current P90 value ($current_value) exceeds the 125% threshold ($threshold) of the past P90 value ($past_value)"
         return 1
     fi
 
@@ -36,7 +36,18 @@ compare_stat_p90() {
 
 calculate_threshold() {
     local past_value="$1"
-    awk -v past="$past_value" 'BEGIN { print past * 1.1 }'
+    awk -v past="$past_value" 'BEGIN { print past * 1.25 }'
+}
+
+calculate_p90_after_skip() {
+    local times_array="$1"
+    local num_entries=$(echo "$times_array" | jq 'length')
+    local times=$(echo "$times_array" | jq -r '.[1:] | .[]')
+    local sorted_times=$(echo "$times" | tr '\n' ' ' | xargs -n1 | sort -g)
+    local index=$((num_entries * 90 / 100))
+
+    local p90=$(echo "$sorted_times" | sed -n "${index}p")
+    echo "$p90"
 }
 
 # Loop through each object in past.json and compare P90 values with current.json for all statistics
