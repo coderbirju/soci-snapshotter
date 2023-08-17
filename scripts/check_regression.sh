@@ -26,6 +26,11 @@ compare_stat_p90() {
     # Calculate 150% of the past value
     local threshold=$(calculate_threshold "$past_value")
 
+    echo "Past P90 value: $past_value"
+    echo "Current P90 value: $current_value"
+    echo "Threshold: $threshold"
+    
+
     # Compare the current value with the threshold
     if (( $(echo "$current_value > $threshold" |bc -l) )); then
         echo "ERROR: $stat_name - Current P90 value ($current_value) exceeds the 150% threshold ($threshold) of the past P90 value ($past_value)"
