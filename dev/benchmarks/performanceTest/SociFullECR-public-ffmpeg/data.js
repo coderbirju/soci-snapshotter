@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692235693442,
+  "lastUpdate": 1692242536829,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -204,6 +204,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
             "value": 14.911,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "596171251c7ac2ac44f5992ecd782bee1c4784b9",
+          "message": "Merge pull request #69 from coderbirju/update_regression_check\n\nUpdate check regression script",
+          "timestamp": "2023-08-16T20:04:40-07:00",
+          "tree_id": "a732f6ff799fb742d37b8433fa84294ac473651c",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/596171251c7ac2ac44f5992ecd782bee1c4784b9"
+        },
+        "date": 1692242536373,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 0.013000000000000001,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskDuration",
+            "value": 0.012,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
+            "value": 20.5405,
             "unit": "Seconds",
             "extra": "P90"
           }
