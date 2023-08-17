@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692217057560,
+  "lastUpdate": 1692234412252,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -122,6 +122,46 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
             "value": 20.006,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Yogidas"
+          },
+          "distinct": true,
+          "id": "b5e3adf9815e0465d6e95792886f5ed6ef602b6d",
+          "message": "Add timeout of 10 secs\n\nThis commit adds 10 secs to the RunContainerTaskForReadyLine\nfunction\n\nSigned-off-by: Arjun Raja Yogidas <arjunry@amazon.com>",
+          "timestamp": "2023-08-17T00:53:27Z",
+          "tree_id": "d20f5f3bb48dbb6a2d02880482e238cb082d0ffb",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/b5e3adf9815e0465d6e95792886f5ed6ef602b6d"
+        },
+        "date": 1692234409742,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 10.013,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskDuration",
+            "value": 10.011,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
+            "value": 28.456,
             "unit": "Seconds",
             "extra": "P90"
           }
