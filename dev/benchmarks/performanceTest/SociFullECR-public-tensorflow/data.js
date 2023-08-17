@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692242543018,
+  "lastUpdate": 1692292533098,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -246,6 +246,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow-pullTaskDuration",
             "value": 23.8615,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7bfcf1ae608135e29e0530defb0dd3e6aa0ccd17",
+          "message": "Update check_regression.sh",
+          "timestamp": "2023-08-17T09:56:18-07:00",
+          "tree_id": "78a4726ce238c29eca929cd0b4c42502dfe1e1d5",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/7bfcf1ae608135e29e0530defb0dd3e6aa0ccd17"
+        },
+        "date": 1692292531892,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow-lazyTaskDuration",
+            "value": 2.682,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow-localTaskDuration",
+            "value": 2.5715000000000003,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow-pullTaskDuration",
+            "value": 34.3065,
             "unit": "Seconds",
             "extra": "P90"
           }
