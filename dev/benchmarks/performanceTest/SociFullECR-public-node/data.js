@@ -27,19 +27,19 @@ window.BENCHMARK_DATA = {
         "benches": [
           {
             "name": "SociFullECR-public-node-lazyTaskDuration",
-            "value": 10.491,
+            "value": 0.6815,
             "unit": "Seconds",
             "extra": "P90"
           },
           {
             "name": "SociFullECR-public-node-localTaskDuration",
-            "value": 10.493500000000001,
+            "value": 0.5425,
             "unit": "Seconds",
             "extra": "P90"
           },
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
-            "value": 11.7375,
+            "value": 12.024999999999999,
             "unit": "Seconds",
             "extra": "P90"
           }
@@ -81,7 +81,7 @@ window.BENCHMARK_DATA = {
           },
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
-            "value": 8.951,
+            "value": 10.951,
             "unit": "Seconds",
             "extra": "P90"
           }
@@ -109,13 +109,13 @@ window.BENCHMARK_DATA = {
         "benches": [
           {
             "name": "SociFullECR-public-node-lazyTaskDuration",
-            "value": 10.525500000000001,
+            "value": 0.525500000000001,
             "unit": "Seconds",
             "extra": "P90"
           },
           {
             "name": "SociFullECR-public-node-localTaskDuration",
-            "value": 10.5225,
+            "value": 0.5225,
             "unit": "Seconds",
             "extra": "P90"
           },
@@ -149,19 +149,19 @@ window.BENCHMARK_DATA = {
         "benches": [
           {
             "name": "SociFullECR-public-node-lazyTaskDuration",
-            "value": 10.4,
+            "value": 0.4,
             "unit": "Seconds",
             "extra": "P90"
           },
           {
             "name": "SociFullECR-public-node-localTaskDuration",
-            "value": 10.3975,
+            "value": 0.3975,
             "unit": "Seconds",
             "extra": "P90"
           },
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
-            "value": 16.7435,
+            "value": 13.7435,
             "unit": "Seconds",
             "extra": "P90"
           }
@@ -203,7 +203,7 @@ window.BENCHMARK_DATA = {
           },
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
-            "value": 17.1515,
+            "value": 14.1515,
             "unit": "Seconds",
             "extra": "P90"
           }
@@ -329,7 +329,7 @@ window.BENCHMARK_DATA = {
           },
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
-            "value": 30.8945,
+            "value": 15.8945,
             "unit": "Seconds",
             "extra": "P90"
           }
