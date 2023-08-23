@@ -109,6 +109,7 @@ func SociFullRun(
 	sociContainerdProc := SociContainerdProcess{containerdProcess}
 	b.ResetTimer()
 	pullStart := time.Now()
+	time.Sleep(60 * time.Second)
 	log.G(ctx).WithField("benchmark", "Test").WithField("event", "Start").Infof("Start Test")
 	log.G(ctx).WithField("benchmark", "Pull").WithField("event", "Start").Infof("Start Pull Image")
 	image, err := sociContainerdProc.SociRPullImageFromRegistry(ctx, imageRef, indexDigest)
