@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692810801333,
+  "lastUpdate": 1692811143028,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -414,6 +414,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-busybox-pullTaskDuration",
             "value": 1.4409999999999998,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "manujgrover71@gmail.com",
+            "name": "Manuj Grover",
+            "username": "manujgrover71"
+          },
+          "committer": {
+            "email": "66654647+turan18@users.noreply.github.com",
+            "name": "Yasin Turan",
+            "username": "turan18"
+          },
+          "distinct": true,
+          "id": "5a40aff504535a863e0655de76a77b058184cafc",
+          "message": "Using standard error package instead of go-multierror for multierror error.\n\nSigned-off-by: Manuj Grover <manujgrover71@gmail.com>",
+          "timestamp": "2023-08-22T15:49:08-04:00",
+          "tree_id": "b3c836a33b9dbca10ef7d1afb88e4e343a05e9b3",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/5a40aff504535a863e0655de76a77b058184cafc"
+        },
+        "date": 1692811142456,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-busybox-lazyTaskDuration",
+            "value": 0.010499999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-busybox-localTaskDuration",
+            "value": 0.01,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-busybox-pullTaskDuration",
+            "value": 0.726,
             "unit": "Seconds",
             "extra": "P90"
           }
