@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1692811143028,
+  "lastUpdate": 1692822257412,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -456,6 +456,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-busybox-pullTaskDuration",
             "value": 0.726,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "yogidas.a@northeastern.edu",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "74d9e054a62aa3f000d3e5957fc4dcb752e855d6",
+          "message": "Merge pull request #71 from coderbirju/demo-pr\n\nAdd 60 secs delay to the benchmark tests",
+          "timestamp": "2023-08-23T12:20:59-07:00",
+          "tree_id": "541ab5d45fec13caf0409529a8410b1a9d26ac33",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/74d9e054a62aa3f000d3e5957fc4dcb752e855d6"
+        },
+        "date": 1692822256577,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-busybox-lazyTaskDuration",
+            "value": 0.014,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-busybox-localTaskDuration",
+            "value": 0.014499999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-busybox-pullTaskDuration",
+            "value": 60.8225,
             "unit": "Seconds",
             "extra": "P90"
           }
