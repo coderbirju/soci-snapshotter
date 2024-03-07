@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1708982953628,
+  "lastUpdate": 1709840890616,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -540,6 +540,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
             "value": 1.5655000000000001,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "davbson@amazon.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "committer": {
+            "email": "55555210+sondavidb@users.noreply.github.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "distinct": true,
+          "id": "1d4d288d008d5f9b67f7179e25e2b6f22e8d1365",
+          "message": "Update zot image tag to v2.0.1\n\nThe v2.0.0-rc6 tag got removed, so using the latest stable version\nas of the time of this commit.\n\nSigned-off-by: David Son <davbson@amazon.com>",
+          "timestamp": "2024-03-07T11:02:45-08:00",
+          "tree_id": "f0d00c483ca3a8d05c9f116856f02f010cdd3ebf",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/1d4d288d008d5f9b67f7179e25e2b6f22e8d1365"
+        },
+        "date": 1709840888462,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-node-lazyTaskDuration",
+            "value": 2.5975,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-localTaskDuration",
+            "value": 0.4625,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-pullTaskDuration",
+            "value": 2.1805,
             "unit": "Seconds",
             "extra": "P90"
           }
