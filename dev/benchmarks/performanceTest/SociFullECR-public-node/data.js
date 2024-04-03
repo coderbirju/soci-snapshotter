@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712173509545,
+  "lastUpdate": 1712181655256,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -750,6 +750,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
             "value": 2.274,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "davbson@amazon.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "distinct": true,
+          "id": "4547e50a7c9961d0cf1c2d534a85d1a7cd7efdc3",
+          "message": "Add prebuild workflow to release branches\n\nSigned-off-by: David Son <davbson@amazon.com>",
+          "timestamp": "2024-04-03T14:46:10-07:00",
+          "tree_id": "e1ba618e874be0ba09baf06cfaf8f1fda196c160",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/4547e50a7c9961d0cf1c2d534a85d1a7cd7efdc3"
+        },
+        "date": 1712181654763,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-node-lazyTaskDuration",
+            "value": 5.263,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-localTaskDuration",
+            "value": 0.4475,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-pullTaskDuration",
+            "value": 1.6804999999999999,
             "unit": "Seconds",
             "extra": "P90"
           }
