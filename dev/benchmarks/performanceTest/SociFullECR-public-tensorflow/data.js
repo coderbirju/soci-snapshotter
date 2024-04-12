@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712181652122,
+  "lastUpdate": 1712886895306,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -792,6 +792,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow-pullTaskDuration",
             "value": 1.278,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "davbson@amazon.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "distinct": false,
+          "id": "779edee7a038c13875945f4c6db56c575d0c0266",
+          "message": "Disable TestNetworkRetry on ARM machines\n\nThis test currently hangs on ARM machines, so disabling till we can fix\nthis.\n\nSigned-off-by: David Son <davbson@amazon.com>",
+          "timestamp": "2024-04-11T15:33:37-07:00",
+          "tree_id": "5bea95a4da1476f3ef79c504292734e370aff90c",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/779edee7a038c13875945f4c6db56c575d0c0266"
+        },
+        "date": 1712886894357,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow-lazyTaskDuration",
+            "value": 12.661000000000001,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow-localTaskDuration",
+            "value": 2.2640000000000002,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow-pullTaskDuration",
+            "value": 1.5594999999999999,
             "unit": "Seconds",
             "extra": "P90"
           }
