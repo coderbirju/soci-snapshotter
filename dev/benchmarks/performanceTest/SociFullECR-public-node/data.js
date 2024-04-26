@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1712886894691,
+  "lastUpdate": 1714158534328,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -834,6 +834,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
             "value": 1.3980000000000001,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "haddscot@amazon.com",
+            "name": "Scott Haddlesey",
+            "username": "haddscot"
+          },
+          "committer": {
+            "email": "160976906+haddscot@users.noreply.github.com",
+            "name": "haddscot",
+            "username": "haddscot"
+          },
+          "distinct": true,
+          "id": "a9952c0206f197e6479cea8722de7785b9f7b8d3",
+          "message": "remove duplicate logging on integ tests, add info for where log came from\n\nSigned-off-by: Scott Haddlesey <haddscot@amazon.com>",
+          "timestamp": "2024-04-26T10:53:07-07:00",
+          "tree_id": "fd68ec48b398cd3fcce8bf5d42cced1e80fe05ad",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/a9952c0206f197e6479cea8722de7785b9f7b8d3"
+        },
+        "date": 1714158533935,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-node-lazyTaskDuration",
+            "value": 6.115,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-localTaskDuration",
+            "value": 0.459,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-pullTaskDuration",
+            "value": 1.6829999999999998,
             "unit": "Seconds",
             "extra": "P90"
           }
