@@ -12,7 +12,7 @@ env:
 
 jobs:
   check:
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,7 +32,7 @@ jobs:
       - run: PATH=$PATH:$(pwd) ./scripts/check-flatc.sh
 
   git-secrets:
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: ubuntu-20.04
     steps:
       - name: Pull latest awslabs/git-secrets repo
         uses: actions/checkout@v4
@@ -54,7 +54,7 @@ jobs:
     strategy:
       matrix:
         working_dir: ['.', 'cmd']
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - uses: golangci/golangci-lint-action@v5
@@ -64,13 +64,13 @@ jobs:
 
   yamllint:
     name: yamllint-lint
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - run: yamllint .
 
   shellcheck:
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: ubuntu-20.04
     container: koalaman/shellcheck-alpine:v0.10.0
     steps:
       - uses: actions/checkout@v4
