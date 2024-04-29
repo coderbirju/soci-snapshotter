@@ -221,6 +221,12 @@ log_fuse_operations = true
 			sh.XLog(append(runSociCmd, "--name", "test", "--rm", imgInfo.ref, "echo", "hi")...)
 
 			curlOutput := string(sh.O("curl", tcpMetricsAddress+metricsPath))
+			fmt.Println("------------------------------------Inside TestFuseOperationFailureMetrics 223---------------------------------")
+			fmt.Println("---------------------------------------------------------------------------------------------------------------")
+			fmt.Println("curlOutput", curlOutput)
+			fmt.Println("tc.metricToCheck", tc.metricToCheck)
+			fmt.Println("tc.expectFuseOperationFailure", tc.expectFuseOperationFailure)
+			fmt.Println("tc.expectedCount", tc.expectedCount)
 			checkFuseOperationFailureMetrics(t, curlOutput, tc.metricToCheck, tc.expectFuseOperationFailure, tc.expectedCount)
 		})
 	}

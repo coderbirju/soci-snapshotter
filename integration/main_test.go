@@ -34,6 +34,7 @@ package integration
 
 import (
 	"os"
+	"os/exec"
 	"testing"
 
 	shell "github.com/awslabs/soci-snapshotter/util/dockershell"
@@ -81,6 +82,7 @@ func TestMain(m *testing.M) {
 
 	if err := shell.Supported(); err != nil {
 		testutil.TestingL.Fatalf("shell pkg is not supported: %v", err)
+		testutil.TestingL.Fatalf("stderr is %s", err.(*exec.ExitError).Stderr)
 	}
 	if err := compose.Supported(); err != nil {
 		testutil.TestingL.Fatalf("compose pkg is not supported: %v", err)
@@ -92,6 +94,7 @@ func TestMain(m *testing.M) {
 	cleanups, err := setup()
 	if err != nil {
 		testutil.TestingL.Fatalf("failed integration test set up: %v", err)
+		testutil.TestingL.Fatalf("stderr is %s", err.(*exec.ExitError).Stderr)
 	}
 
 	c := m.Run()

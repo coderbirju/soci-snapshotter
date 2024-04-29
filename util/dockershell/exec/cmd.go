@@ -40,7 +40,7 @@ import (
 
 // Supported checks if this pkg can run on the current system.
 func Supported() error {
-	return exec.Command("docker", "version").Run()
+	return exec.Command("sudo", "docker", "version").Run()
 }
 
 // Exec is an executing environment for a container. Commands can be executed in the
