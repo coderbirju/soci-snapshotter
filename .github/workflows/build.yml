@@ -24,7 +24,7 @@ env:
 
 jobs:
   test:
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-7.0-xlarge
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -33,7 +33,7 @@ jobs:
       - run: make
       - run: make test
   integration:
-    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-5.0-xlarge
+    runs-on: codebuild-soci-snapshotter-personal-pipeline-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-7.0-xlarge
     strategy:
       fail-fast: false
       matrix:
@@ -45,13 +45,4 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      - run: sudo rm /usr/local/bin/docker-compose
-      # - run: VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
-      # - run: DESTINATION=/usr/local/bin/docker-compose
-      - run: mkdir -p /usr/local/lib/docker/cli-plugins
-      - run: sudo curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
-      - run: sudo chmod +x  /usr/local/lib/docker/cli-plugins/docker-compose
-      - run: ln -s /usr/local/lib/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
-      - run: docker-compose version
-      - run: docker compose version
       - run: make integration
