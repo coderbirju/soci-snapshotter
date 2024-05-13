@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1714407144043,
+  "lastUpdate": 1715576532848,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1002,6 +1002,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 2.7375,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "steven.davidovitz@dominodatalab.com",
+            "name": "Steven Davidovitz",
+            "username": "steved"
+          },
+          "committer": {
+            "email": "55906459+austinvazquez@users.noreply.github.com",
+            "name": "Austin Vazquez",
+            "username": "austinvazquez"
+          },
+          "distinct": true,
+          "id": "071a9111ec94afedd38f4deac7c960b803710059",
+          "message": "Trigger Docker auth on ECR token expiry\n\nAn expired token passed to ECR will return a 403, which lacks a\nWww-Authenticate header required to trigger the docker authorizer. This\nmeant that credential helpers like amazon-ecr-credential-helper would\nnot refresh the token. This change adds the proper header to fix this\nbehavior.\n\nSigned-off-by: David Son <davbson@amazon.com>",
+          "timestamp": "2024-05-11T04:42:39-07:00",
+          "tree_id": "5084428f0af5e11612e6aaacf4d58e3bb790124b",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/071a9111ec94afedd38f4deac7c960b803710059"
+        },
+        "date": 1715576532318,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 36.5595,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 2.393,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 2.6445,
             "unit": "Seconds",
             "extra": "P90"
           }
