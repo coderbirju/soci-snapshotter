@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1715576533725,
+  "lastUpdate": 1715641588887,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -960,6 +960,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-redis-pullTaskDuration",
             "value": 1.476,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "davbson@amazon.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "committer": {
+            "email": "55555210+sondavidb@users.noreply.github.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "distinct": true,
+          "id": "1142aec4a8b18a763e2e76284cfaa48a36012fc3",
+          "message": "Add testing suite cleanup to Makefile\n\nSigned-off-by: David Son <davbson@amazon.com>",
+          "timestamp": "2024-05-13T10:29:54-07:00",
+          "tree_id": "a90a804d63109c6a585bb2b873d51a8c3a5cc1d9",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/1142aec4a8b18a763e2e76284cfaa48a36012fc3"
+        },
+        "date": 1715641584533,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-redis-lazyTaskDuration",
+            "value": 0.609,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-redis-localTaskDuration",
+            "value": 0.02,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-redis-pullTaskDuration",
+            "value": 2.7295,
             "unit": "Seconds",
             "extra": "P90"
           }
