@@ -717,6 +717,7 @@ func rebootContainerd(t *testing.T, sh *shell.Shell, customContainerdConfig, cus
 	sh.Gox(containerdCmds...)
 	snapshotterCmds := shell.C("/usr/local/bin/soci-snapshotter-grpc", "--log-level", sociLogLevel,
 		"--address", snapshotterSocket)
+
 	if customSnapshotterConfig != "" {
 		snapshotterCmds = addConfig(t, sh, customSnapshotterConfig, snapshotterCmds...)
 	}
@@ -724,6 +725,14 @@ func rebootContainerd(t *testing.T, sh *shell.Shell, customContainerdConfig, cus
 	if err != nil {
 		t.Fatalf("failed to create pipe: %v", err)
 	}
+	time.Sleep(2 * time.Second)
+	pids, err := sh.OLog("pgrep", "-f", "soci")
+	t.Log(string(pids))
+	if err != nil {
+		t.Fatal(err)
+	}
+	// sh.Gox("strace", "-f", "-p", string(pids))
+
 	reporter := testutil.NewTestingReporter(t)
 	var m *testutil.LogMonitor = testutil.NewLogMonitor(reporter, outR, errR)
 

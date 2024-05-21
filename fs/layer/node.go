@@ -303,6 +303,8 @@ func (n *node) Readdir(ctx context.Context) (fusefs.DirStream, syscall.Errno) {
 	if errno != 0 {
 		return nil, errno
 	}
+
+	log.G(ctx).Debugf("Inside Readdir : %+v\n", ents)
 	return fusefs.NewListDirStream(ents), 0
 }
 
@@ -541,6 +543,8 @@ func (n *node) Listxattr(ctx context.Context, dest []byte) (uint32, syscall.Errn
 	for k := range ent.Xattrs {
 		attrs = append(attrs, []byte(k+"\x00")...)
 	}
+
+	log.G(ctx).Debugf("Inside Listxattr : %+v\n", ent)
 	if len(dest) < len(attrs) {
 		return uint32(len(attrs)), syscall.ERANGE
 	}

@@ -160,6 +160,7 @@ func buildIndex(sh *shell.Shell, src imageInfo, opt ...indexBuildOption) string 
 		"--platform", platforms.Format(src.platform), // this will make SOCI artifact available locally
 	)
 	if err != nil {
+		fmt.Println("error  line 163:", err)
 		return ""
 	}
 

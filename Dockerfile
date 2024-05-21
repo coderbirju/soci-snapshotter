@@ -35,7 +35,8 @@ RUN apk add --no-cache \
     libc6-compat \
     libseccomp-dev \
     pigz \
-    zlib-dev
+    zlib-dev \
+    strace 
 RUN cp $GOPATH/src/github.com/awslabs/soci-snapshotter/out/soci /usr/local/bin/ && \
     cp $GOPATH/src/github.com/awslabs/soci-snapshotter/out/soci-snapshotter-grpc /usr/local/bin/ && \
     mkdir /etc/soci-snapshotter-grpc && \

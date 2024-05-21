@@ -143,6 +143,10 @@ func TestOverlayFallbackMetric(t *testing.T) {
 }
 
 func TestFuseOperationFailureMetrics(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping testing in short mode")
+	}
+
 	const logFuseOperationConfig = `
 [fuse]
 log_fuse_operations = true
@@ -397,6 +401,9 @@ func checkFuseOperationFailureMetrics(t *testing.T, output string, metricToCheck
 	metricCountSum := 0
 
 	lines := strings.Split(output, "\n")
+	// t.Log("\n---------------------------- printinf outpurt of lines------------------------- \n")
+	// t.Log(output)
+	// t.Log("\n---------------------------- end------------------------- \n")
 	for _, line := range lines {
 		// skip non-fuse and fuse_mount_failure_count metrics
 		if !strings.Contains(line, "fuse") || strings.Contains(line, commonmetrics.FuseMountFailureCount) {
