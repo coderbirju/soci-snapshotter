@@ -47,9 +47,4 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
-      # - run: wget https://github.com/containerd/nerdctl/releases/download/v1.7.6/nerdctl-1.7.6-linux-amd64.tar.gz
-      # - run: sudo tar Cxzvf /usr/local/bin nerdctl-1.7.6-linux-amd64.tar.gz
-      # - run: sudo apt -y update && sudo apt -y upgrade && sudo apt-get -y install gcc-multilib
-      # - run: uname -a
-      # - run: GO_TEST_FLAGS="-run TestLazyPullWithSparseIndex -count=1" make integration
-      - run: GO_TEST_FLAGS="-short -count=1" make integration
+      - run: make integration
