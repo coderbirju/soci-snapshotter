@@ -305,18 +305,42 @@ func NewIndexBuilder(contentStore content.Store, blobStore orascontent.Storage, 
 	}, nil
 }
 
+// BuildAndPush builds a SOCI index, pushes and labels the artifacts, and returns the SOCI index.
+func (b *IndexBuilder) BuildAndPush(ctx context.Context, blobStore store.Store, img images.Image) (*IndexWithMetadata, error) {
+	sociIndexWithMetadata, done, err := b.Build(ctx, blobStore, img)
+	if err != nil {
+		return nil, err
+	}
+	defer done(ctx)
+
+	err = WriteSociIndex(ctx, sociIndexWithMetadata, blobStore, b.ArtifactsDb)
+	if err != nil {
+		return nil, err
+	}
+	return sociIndexWithMetadata, nil
+}
+
 // Build builds a soci index for `img` and return the index with metadata.
-func (b *IndexBuilder) Build(ctx context.Context, img images.Image) (*IndexWithMetadata, error) {
+// To prevent garbage collection of the zTOCs pushed by this command,
+// we obtain a lease from containerd and also return it.
+// It is the responsibility of the caller to terminate the lease.
+// Ideally the lease ends after labelling and pushing the index and related zTOCs.
+func (b *IndexBuilder) Build(ctx context.Context, blobStore store.Store, img images.Image) (*IndexWithMetadata, store.CleanupFunc, error) {
 	// we get manifest descriptor before calling images.Manifest, since after calling
 	// images.Manifest, images.Children will error out when reading the manifest blob (this happens on containerd side)
 	imgManifestDesc, err := GetImageManifestDescriptor(ctx, b.contentStore, img.Target, platforms.OnlyStrict(b.config.platform))
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	manifest, err := images.Manifest(ctx, b.contentStore, img.Target, platforms.OnlyStrict(b.config.platform))
 
 	if err != nil {
-		return nil, err
+		return nil, nil, err
+	}
+
+	ctx, done, err := blobStore.BatchOpen(ctx)
+	if err != nil {
+		return nil, nil, err
 	}
 
 	// attempt to build a ztoc for each layer
@@ -357,8 +381,8 @@ func (b *IndexBuilder) Build(ctx context.Context, img images.Image) (*IndexWithM
 		for _, err := range errs {
 			errWrap = fmt.Errorf("%w; %v", errWrap, err)
 		}
-
-		return nil, errWrap
+		done(ctx)
+		return nil, nil, errWrap
 	}
 
 	ztocsDesc := make([]ocispec.Descriptor, 0, len(sociLayersDesc))
@@ -369,7 +393,8 @@ func (b *IndexBuilder) Build(ctx context.Context, img images.Image) (*IndexWithM
 	}
 
 	if len(ztocsDesc) == 0 {
-		return nil, ErrEmptyIndex
+		done(ctx)
+		return nil, nil, ErrEmptyIndex
 	}
 
 	annotations := map[string]string{
@@ -388,7 +413,7 @@ func (b *IndexBuilder) Build(ctx context.Context, img images.Image) (*IndexWithM
 		Platform:    &b.config.platform,
 		ImageDigest: img.Target.Digest,
 		CreatedAt:   time.Now(),
-	}, nil
+	}, done, nil
 }
 
 // buildSociLayer builds a ztoc for an image layer (`desc`) and returns ztoc descriptor.
