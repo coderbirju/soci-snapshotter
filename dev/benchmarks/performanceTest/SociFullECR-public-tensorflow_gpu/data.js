@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1716586753156,
+  "lastUpdate": 1717433998905,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1170,6 +1170,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 3.059,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun Raja Yogidas",
+            "username": "coderbirju"
+          },
+          "committer": {
+            "email": "arjunry@amazon.com",
+            "name": "Arjun",
+            "username": "coderbirju"
+          },
+          "distinct": true,
+          "id": "98f2fb42d88484398bdd125a8d20f0468ec1088b",
+          "message": "fix fuse test issues\n\nSigned-off-by: Arjun Raja Yogidas <arjunry@amazon.com>",
+          "timestamp": "2024-06-03T09:46:21-07:00",
+          "tree_id": "6f15ffd5c51460d47dd7392e6d46da399996dd4f",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/98f2fb42d88484398bdd125a8d20f0468ec1088b"
+        },
+        "date": 1717433998605,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 12.8005,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 2.359,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 2.5545,
             "unit": "Seconds",
             "extra": "P90"
           }
