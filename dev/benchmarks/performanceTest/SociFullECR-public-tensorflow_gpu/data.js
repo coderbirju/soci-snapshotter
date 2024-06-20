@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1717433998905,
+  "lastUpdate": 1718923507529,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1212,6 +1212,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 2.5545,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "shubhum@amazon.com",
+            "name": "Shubharanshu Mahapatra",
+            "username": "Shubhranshu153"
+          },
+          "committer": {
+            "email": "55555210+sondavidb@users.noreply.github.com",
+            "name": "David Son",
+            "username": "sondavidb"
+          },
+          "distinct": true,
+          "id": "07296f9741ff540f226125dfa795270c2f9900a7",
+          "message": "Fix daemon startup latency issue by providing an option to skip snapshotter supported flag\n\nSigned-off-by: Shubharanshu Mahapatra <shubhum@amazon.com>",
+          "timestamp": "2024-06-19T15:48:43-07:00",
+          "tree_id": "3b0ccddec373fb6aec21c3e932067bbfe0bb32a9",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/07296f9741ff540f226125dfa795270c2f9900a7"
+        },
+        "date": 1718923507132,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 10.995999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 2.274,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 2.012,
             "unit": "Seconds",
             "extra": "P90"
           }
