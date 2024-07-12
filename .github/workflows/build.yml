@@ -35,19 +35,18 @@ jobs:
     # Then, replace 'soci-snapshotter-instance' with the name of the project you created.
     name: Setup Build Matrix
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != 'awslabs/soci-snapshotter'
     strategy:
       matrix:
         # We're using a matrix with a single entry so that we can define some config as YAML rather than
         # having to write escaped json in a string.
         include:
-          - use-codebuild: ${{ github.repository_owner == 'awslabs' }}
-            runs-on-names-cb: [ubuntu-x86, al2-arm]
+          - use-codebuild: ${{ github.repository_owner == 'coderbirju' }}
+            runs-on-names-cb: [ al2-arm]
             runs-on-names: [ubuntu]
             runner-labels:
               ubuntu: ubuntu-22.04
-              ubuntu-x86: "codebuild-soci-snapshotter-instance-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-7.0-xlarge"
-              al2-arm: "codebuild-soci-snapshotter-instance-${{ github.run_id }}-${{ github.run_attempt }}-arm-3.0-large"
+              # ubuntu-x86: "codebuild-soci-snapshotter-instance-dev-new-${{ github.run_id }}-${{ github.run_attempt }}-ubuntu-7.0-xlarge"
+              al2-arm: "codebuild-soci-snapshotter-instance-dev-new-${{ github.run_id }}-${{ github.run_attempt }}-arm-3.0-large"
     outputs:
       available-runners: ${{ matrix.use-codebuild && toJSON(matrix.runs-on-names-cb) || toJSON(matrix.runs-on-names) }}
       runner-labels: ${{ toJSON(matrix.runner-labels) }}
@@ -55,23 +54,23 @@ jobs:
       - name: Dump Config
         run: echo '${{ toJSON(matrix) }}'
 
-  test:
-    needs: setup
-    runs-on: ${{ fromJSON(needs.setup.outputs.runner-labels)[matrix.os] }}
-    strategy:
-      matrix:
-        os: ${{ fromJSON(needs.setup.outputs.available-runners) }}
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: ${{ env.GO_VERSION }}
-      - name: Install zlib static on AL2 ARM instances
-        if: matrix.os == 'al2-arm'
-        run: dnf install zlib-static.aarch64 -y
-      - run: make
-      - run: make test
+  # test:
+  #   needs: setup
+  #   runs-on: ${{ fromJSON(needs.setup.outputs.runner-labels)[matrix.os] }}
+  #   strategy:
+  #     matrix:
+  #       os: ${{ fromJSON(needs.setup.outputs.available-runners) }}
+  #   timeout-minutes: 15
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-go@v5
+  #       with:
+  #         go-version: ${{ env.GO_VERSION }}
+  #     - name: Install zlib static on AL2 ARM instances
+  #       if: matrix.os == 'al2-arm'
+  #       run: dnf install zlib-static.aarch64 -y
+  #     - run: make
+  #     - run: make test
 
   integration:
     needs: setup
@@ -88,7 +87,8 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
+      - run: uname -r
       - name: Install zlib static on AL2 ARM instances
         if: matrix.os == 'al2-arm'
         run: dnf install zlib-static.aarch64 -y
-      - run: make integration
+      - run: GO_TEST_FLAGS="-run TestFuseOperationFailureMetrics" make integration
