@@ -33,6 +33,7 @@
 package integration
 
 import (
+	"fmt"
 	"os"
 	"testing"
 
@@ -133,6 +134,7 @@ func setup() ([]func() error, error) {
 		compose.WithBuildArgs(buildArgs...),
 		compose.WithStdio(testutil.TestingLogDest()),
 	}
+	fmt.Println("compose", composeYaml)
 
 	return compose.Build(composeYaml, cOpts...)
 
