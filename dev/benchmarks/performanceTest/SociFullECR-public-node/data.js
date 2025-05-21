@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747851858558,
+  "lastUpdate": 1747863319277,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1296,6 +1296,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-node-pullTaskDuration",
             "value": 1.5505,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "walster@amazon.com",
+            "name": "Kern Walster",
+            "username": "Kern--"
+          },
+          "committer": {
+            "email": "kern.walster@gmail.com",
+            "name": "Kern Walster",
+            "username": "Kern--"
+          },
+          "distinct": true,
+          "id": "8bbfe951bbb411798ee85dbd908544df4a1619a8",
+          "message": "Add test for span arg validation\n\nThis adds a test that a user cannot specify a min-layer-size or\nspan-size that is negative or larger than what can fit into a signed\n64-bit integer.\n\nSigned-off-by: Kern Walster <walster@amazon.com>",
+          "timestamp": "2025-05-21T14:22:17-07:00",
+          "tree_id": "c8707347eb25b8b26d06222e27f816c6c8a92d79",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/8bbfe951bbb411798ee85dbd908544df4a1619a8"
+        },
+        "date": 1747863318292,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-node-lazyTaskDuration",
+            "value": 1.8479999999999999,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-localTaskDuration",
+            "value": 0.465,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-node-pullTaskDuration",
+            "value": 2.0149999999999997,
             "unit": "Seconds",
             "extra": "P90"
           }
