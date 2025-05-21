@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1747851855207,
+  "lastUpdate": 1747863308799,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1380,6 +1380,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
             "value": 2.794,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "walster@amazon.com",
+            "name": "Kern Walster",
+            "username": "Kern--"
+          },
+          "committer": {
+            "email": "kern.walster@gmail.com",
+            "name": "Kern Walster",
+            "username": "Kern--"
+          },
+          "distinct": true,
+          "id": "8bbfe951bbb411798ee85dbd908544df4a1619a8",
+          "message": "Add test for span arg validation\n\nThis adds a test that a user cannot specify a min-layer-size or\nspan-size that is negative or larger than what can fit into a signed\n64-bit integer.\n\nSigned-off-by: Kern Walster <walster@amazon.com>",
+          "timestamp": "2025-05-21T14:22:17-07:00",
+          "tree_id": "c8707347eb25b8b26d06222e27f816c6c8a92d79",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/8bbfe951bbb411798ee85dbd908544df4a1619a8"
+        },
+        "date": 1747863307604,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-lazyTaskDuration",
+            "value": 11.130500000000001,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-localTaskDuration",
+            "value": 2.6225,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-tensorflow_gpu-pullTaskDuration",
+            "value": 1.9749999999999999,
             "unit": "Seconds",
             "extra": "P90"
           }
