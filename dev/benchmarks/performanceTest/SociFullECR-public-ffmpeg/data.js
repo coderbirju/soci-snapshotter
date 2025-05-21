@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1721148200037,
+  "lastUpdate": 1747851852880,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1254,6 +1254,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
             "value": 1.244,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "macedonv@amazon.com",
+            "name": "Austin Vazquez",
+            "username": "austinvazquez"
+          },
+          "committer": {
+            "email": "55906459+austinvazquez@users.noreply.github.com",
+            "name": "Austin Vazquez",
+            "username": "austinvazquez"
+          },
+          "distinct": true,
+          "id": "ca55b7fe5f35682e24c69da51ce93b584b3c6359",
+          "message": "Add SOCI CLI root flag\n\nThis change adds --root flag for the soci command and refactors common\ncode with the snapshotter grpc for similar logic.\n\nSigned-off-by: Austin Vazquez <macedonv@amazon.com>",
+          "timestamp": "2025-05-19T09:57:40-07:00",
+          "tree_id": "4a26569726033740b5195af7f609bb7ceffdd774",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/ca55b7fe5f35682e24c69da51ce93b584b3c6359"
+        },
+        "date": 1747851852485,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 0.1365,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskDuration",
+            "value": 0.0075,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
+            "value": 1.383,
             "unit": "Seconds",
             "extra": "P90"
           }
