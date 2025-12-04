@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1751477985115,
+  "lastUpdate": 1764876330942,
   "repoUrl": "https://github.com/coderbirju/soci-snapshotter",
   "entries": {
     "Soci Benchmark": [
@@ -1380,6 +1380,48 @@ window.BENCHMARK_DATA = {
           {
             "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
             "value": 1.569,
+            "unit": "Seconds",
+            "extra": "P90"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "swpnlg@amazon.com",
+            "name": "Swapnanil-Gupta",
+            "username": "Swapnanil-Gupta"
+          },
+          "committer": {
+            "email": "swpnlg@amazon.com",
+            "name": "Swapnanil Gupta",
+            "username": "Swapnanil-Gupta"
+          },
+          "distinct": false,
+          "id": "c1111b599e2576ca1c0ba85c49abf7ed026579d9",
+          "message": "fix: skip processing ztocs/indexes that are found in the artifacts store but not in the content store\n\nSigned-off-by: Swapnanil-Gupta <swpnlg@amazon.com>",
+          "timestamp": "2025-12-02T11:51:24-08:00",
+          "tree_id": "c5035b4f1349cc4f6e3f04f86924961a407c3ae5",
+          "url": "https://github.com/coderbirju/soci-snapshotter/commit/c1111b599e2576ca1c0ba85c49abf7ed026579d9"
+        },
+        "date": 1764876327617,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "SociFullECR-public-ffmpeg-lazyTaskDuration",
+            "value": 0.121,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-localTaskDuration",
+            "value": 0.0075,
+            "unit": "Seconds",
+            "extra": "P90"
+          },
+          {
+            "name": "SociFullECR-public-ffmpeg-pullTaskDuration",
+            "value": 1.5145,
             "unit": "Seconds",
             "extra": "P90"
           }
