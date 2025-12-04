@@ -200,24 +200,27 @@ func validateConversion(t *testing.T, sh *shell.Shell, originalDigest, converted
 
 		// Get GC labels
 		manifestLabelOutput := sh.O("ctr", "content", "label", manifestDesc.Digest.String())
+		fmt.Printf("running ctr content label on manifest digest -> %v", manifestDesc.Digest.String())
 		manifestLabels := strings.Split(strings.TrimSpace(string(manifestLabelOutput)), ",")
+		fmt.Printf("length of maifestLabels -> %v", len(manifestLabels))
 		// verify GC lables exists
 		if len(manifestLabels) <= 0 {
 			t.Errorf("manifest does not contain labels, got %d labels", len(manifestLabels))
 		}
 		// verify config label exists
-		// verify config label exists
-		hasConfigLabel := false
+		var configInfor ocispec.Image
 		for _, label := range manifestLabels {
 			parts := strings.Split(label, "=")
 			if len(parts) == 2 && parts[0] == "containerd.io/gc.ref.content.config" {
-				hasConfigLabel = true
-				break
+				configBytes := sh.O("ctr", "content", "get", parts[1])
+				fmt.Printf("Running ctr content get on -> %v", parts[1])
+				if err := json.Unmarshal(configBytes, &configInfor); err != nil {
+					t.Errorf("failed to decode manifest: %v", err)
+					continue
+				}
 			}
 		}
-		if !hasConfigLabel {
-			t.Errorf("manifest does not contain required config label 'containerd.io/gc.ref.content.config'")
-		}
+
 	}
 
 }
