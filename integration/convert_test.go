@@ -197,7 +197,29 @@ func validateConversion(t *testing.T, sh *shell.Shell, originalDigest, converted
 		if dg, ok := manifest.Annotations[soci.ImageAnnotationSociIndexDigest]; !ok || dg != sociIndexDesc.Digest.String() {
 			t.Errorf("manifest %v does not contain expected soci index digest %v", manifestDesc, sociIndexDesc.Digest)
 		}
+
+		// Get GC labels
+		manifestLabelOutput := sh.O("ctr", "content", "label", manifestDesc.Digest.String())
+		manifestLabels := strings.Split(strings.TrimSpace(string(manifestLabelOutput)), ",")
+		// verify GC lables exists
+		if len(manifestLabels) <= 0 {
+			t.Errorf("manifest does not contain labels, got %d labels", len(manifestLabels))
+		}
+		// verify config label exists
+		// verify config label exists
+		hasConfigLabel := false
+		for _, label := range manifestLabels {
+			parts := strings.Split(label, "=")
+			if len(parts) == 2 && parts[0] == "containerd.io/gc.ref.content.config" {
+				hasConfigLabel = true
+				break
+			}
+		}
+		if !hasConfigLabel {
+			t.Errorf("manifest does not contain required config label 'containerd.io/gc.ref.content.config'")
+		}
 	}
+
 }
 
 func TestConvert(t *testing.T) {
