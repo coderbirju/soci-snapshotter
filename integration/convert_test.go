@@ -198,42 +198,63 @@ func validateConversion(t *testing.T, sh *shell.Shell, originalDigest, converted
 			t.Errorf("manifest %v does not contain expected soci index digest %v", manifestDesc, sociIndexDesc.Digest)
 		}
 
-		configDigest, err := getManifestLabelsAndConfigDigest(sh, manifestDesc.Digest.String())
+		// get labels associated with the manifest and extract the digest
+		configDigest, err := getDigestLabelMapping(sh, manifestDesc.Digest.String())
 		if err != nil {
 			t.Errorf("failed to get config digest from manifest: %v", err)
 			continue
 		}
-		configBytes := sh.O("ctr", "content", "get", configDigest)
 
-		var configInfo ocispec.Image
-		if err := json.Unmarshal(configBytes, &configInfo); err != nil {
-			fmt.Errorf("failed to decode config: %v", err)
+		_, err = verifyImageLayersContainsLabel(configDigest, manifest)
+		if err != nil {
+			t.Errorf("error verifying layers: %v", err)
+			continue
 		}
-
 	}
 
 }
 
-func getManifestLabelsAndConfigDigest(sh *shell.Shell, manifestDigest string) (string, error) {
-	gcConfigLabelKey := "containerd.io/gc.ref.content.config"
+func getDigestLabelMapping(sh *shell.Shell, manifestDigest string) (map[string][]string, error) {
+	digestMap := make(map[string][]string)
 
-	// Get manifest labels
 	manifestLabelOutput := sh.O("ctr", "content", "label", manifestDigest)
 	manifestLabels := strings.Split(strings.TrimSpace(string(manifestLabelOutput)), ",")
 
 	if len(manifestLabels) <= 0 {
-		return "", fmt.Errorf("manifest does not contain any labels")
+		return nil, fmt.Errorf("manifest does not contain any labels")
 	}
 
-	// Extract config digest from labels
 	for _, label := range manifestLabels {
-		parts := strings.Split(label, "=")
-		if len(parts) == 2 && parts[0] == gcConfigLabelKey {
-			return parts[1], nil
+		keyVal := strings.Split(label, "=")
+		if len(keyVal) != 2 {
+			continue
+		} else {
+			digestMap[keyVal[1]] = append(digestMap[keyVal[1]], keyVal[0])
 		}
 	}
+	return digestMap, nil
+}
 
-	return "", fmt.Errorf("config label %q not found in manifest labels", gcConfigLabelKey)
+func verifyImageLayersContainsLabel(digestMap map[string][]string, manifest ocispec.Manifest) (bool, error) {
+	for i := 0; i < len(manifest.Layers); i = i + 1 {
+		layerDigest := manifest.Layers[i].Digest.String()
+		if labels, ok := digestMap[layerDigest]; ok {
+			found := false
+			for _, label := range labels {
+				if strings.Contains(label, "containerd.io/gc.ref.content") {
+					found = true
+					break
+				}
+			}
+			if !found {
+				return false, fmt.Errorf("digest %s does not have associated gc label", layerDigest)
+			}
+		} else {
+			// Layer digest not found in digestMap
+			return false, fmt.Errorf("digest %s not found in digestMap", layerDigest)
+		}
+	}
+	return true, nil
 }
 
 func TestConvert(t *testing.T) {
