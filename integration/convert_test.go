@@ -198,31 +198,42 @@ func validateConversion(t *testing.T, sh *shell.Shell, originalDigest, converted
 			t.Errorf("manifest %v does not contain expected soci index digest %v", manifestDesc, sociIndexDesc.Digest)
 		}
 
-		// Get GC labels
-		manifestLabelOutput := sh.O("ctr", "content", "label", manifestDesc.Digest.String())
-		fmt.Printf("running ctr content label on manifest digest -> %v", manifestDesc.Digest.String())
-		manifestLabels := strings.Split(strings.TrimSpace(string(manifestLabelOutput)), ",")
-		fmt.Printf("length of maifestLabels -> %v", len(manifestLabels))
-		// verify GC lables exists
-		if len(manifestLabels) <= 0 {
-			t.Errorf("manifest does not contain labels, got %d labels", len(manifestLabels))
+		configDigest, err := getManifestLabelsAndConfigDigest(sh, manifestDesc.Digest.String())
+		if err != nil {
+			t.Errorf("failed to get config digest from manifest: %v", err)
+			continue
 		}
-		// verify config label exists
-		var configInfor ocispec.Image
-		for _, label := range manifestLabels {
-			parts := strings.Split(label, "=")
-			if len(parts) == 2 && parts[0] == "containerd.io/gc.ref.content.config" {
-				configBytes := sh.O("ctr", "content", "get", parts[1])
-				fmt.Printf("Running ctr content get on -> %v", parts[1])
-				if err := json.Unmarshal(configBytes, &configInfor); err != nil {
-					t.Errorf("failed to decode manifest: %v", err)
-					continue
-				}
-			}
+		configBytes := sh.O("ctr", "content", "get", configDigest)
+
+		var configInfo ocispec.Image
+		if err := json.Unmarshal(configBytes, &configInfo); err != nil {
+			fmt.Errorf("failed to decode config: %v", err)
 		}
 
 	}
 
+}
+
+func getManifestLabelsAndConfigDigest(sh *shell.Shell, manifestDigest string) (string, error) {
+	gcConfigLabelKey := "containerd.io/gc.ref.content.config"
+
+	// Get manifest labels
+	manifestLabelOutput := sh.O("ctr", "content", "label", manifestDigest)
+	manifestLabels := strings.Split(strings.TrimSpace(string(manifestLabelOutput)), ",")
+
+	if len(manifestLabels) <= 0 {
+		return "", fmt.Errorf("manifest does not contain any labels")
+	}
+
+	// Extract config digest from labels
+	for _, label := range manifestLabels {
+		parts := strings.Split(label, "=")
+		if len(parts) == 2 && parts[0] == gcConfigLabelKey {
+			return parts[1], nil
+		}
+	}
+
+	return "", fmt.Errorf("config label %q not found in manifest labels", gcConfigLabelKey)
 }
 
 func TestConvert(t *testing.T) {
